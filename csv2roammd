@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+import os
+import sys
+import csv
+
+def main():
+    data = sys.stdin.readlines()
+    roamreader = csv.reader(data)
+    print("{{table}}")
+    for row in roamreader:
+        rowlist = []
+        for i in range(0, len(row)):
+            cell = row[i]
+            cellstr = ("\t" * (i + 1)) + "- " + cell
+            rowlist.append(cellstr)
+        print("\n".join(rowlist))
+
+
+if __name__ == '__main__':
+    main()
+
